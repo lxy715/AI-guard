@@ -17,45 +17,47 @@
 #include "BMI088driver.h"
 #include "QuaternionEKF.h"
 
-//å¼§åº¦åˆ¶è½¬è§’åº¦åˆ¶
+//å¼§åº¦åˆ¶è½¬è§’åº¦åˆ?
 #define ANGLE_TO_RADIAN ((2 * PI) / 360.0f)
 
 
-#define X 1
-#define Y 0
+#define X 0
+#define Y 1
 #define Z 2
 
 #define INS_TASK_PERIOD 1
 
 typedef struct
 {
-    float q[4]; // å››å…ƒæ•°ä¼°è®¡å€¼
+    float q[4]; // ËÄÔªÊı¹À¼ÆÖµ
 
-    float Gyro[3];  // è§’é€Ÿåº¦
-    float Accel[3]; // åŠ é€Ÿåº¦
-    float MotionAccel_b[3]; // æœºä½“åæ ‡åŠ é€Ÿåº¦
-    float MotionAccel_n[3]; // ç»å¯¹ç³»åŠ é€Ÿåº¦
+    float Gyro[3];  // ½ÇËÙ¶È
+    float Accel[3]; // ¼ÓËÙ¶È
+    float MotionAccel_b[3]; // »úÌå×ø±ê¼ÓËÙ¶È
+    float MotionAccel_n[3]; /// ¾ø¶ÔÏµ¼ÓËÙ¶È
 
-    float AccelLPF; // åŠ é€Ÿåº¦ä½é€šæ»¤æ³¢ç³»æ•°
+    float AccelLPF; // / ¼ÓËÙ¶ÈµÍÍ¨ÂË²¨ÏµÊı
 
-    // åŠ é€Ÿåº¦åœ¨ç»å¯¹ç³»çš„å‘é‡è¡¨ç¤º
+ // ¼ÓËÙ¶ÈÔÚ¾ø¶ÔÏµµÄÏòÁ¿±íÊ¾
     float xn[3];
     float yn[3];
     float zn[3];
+	
 
     float atanxz;
     float atanyz;
 
-    // ä½å§¿
+   // Î»×Ë
     float Roll;
     float Pitch;
     float Yaw;
+    float firstyaw;
     float YawTotalAngle;
 } INS_t;
 
 
 /**
- * @brief ç”¨äºä¿®æ­£å®‰è£…è¯¯å·®çš„å‚æ•°,demoä¸­å¯æ— è§†
+ * @brief ÓÃÓÚĞŞÕı°²×°Îó²îµÄ²ÎÊı,demoÖĞ¿ÉÎŞÊÓ
  * 
  */
 typedef struct
@@ -81,7 +83,7 @@ void EularAngleToQuaternion(float Yaw, float Pitch, float Roll, float *q);
 void BodyFrameToEarthFrame(const float *vecBF, float *vecEF, float *q);
 void EarthFrameToBodyFrame(const float *vecEF, float *vecBF, float *q);
 
-//è·å–imuå§¿æ€æŒ‡é’ˆ
+//è·å–imuå§¿æ€æŒ‡é’?
 const INS_t* get_INS_point(void);
 
 #endif

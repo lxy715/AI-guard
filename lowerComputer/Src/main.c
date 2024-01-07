@@ -95,6 +95,7 @@ void MX_FREERTOS_Init(void);
   * @retval int
   */
 int main(void)
+
 {
   /* USER CODE BEGIN 1 */
 
@@ -139,7 +140,9 @@ int main(void)
   MX_TIM10_Init();
   MX_USART1_UART_Init();
   MX_USART6_UART_Init();
+	  MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
+	
     can_filter_init();
     delay_init();
     remote_control_init();
@@ -147,7 +150,7 @@ int main(void)
     DWT_Init(168);
     while (BMI088_init(&hspi1, 0) != BMI088_NO_ERROR)
     {
-        ;
+       ;
     }
   /* USER CODE END 2 */
 
@@ -164,7 +167,7 @@ int main(void)
     while (1)
     {
     /* USER CODE END WHILE */
-
+ 
     /* USER CODE BEGIN 3 */
     }
   /* USER CODE END 3 */

@@ -112,7 +112,7 @@
 //底盘运动过程最大平移速度
 #define NORMAL_MAX_CHASSIS_SPEED_Y 1.5f
 
-#define CHASSIS_WZ_SET_SCALE 0.0f
+#define CHASSIS_WZ_SET_SCALE 0.1375f
 
 //when chassis is not set to move, swing max angle
 //摇摆原地不动摇摆最大角度(rad)
@@ -141,7 +141,7 @@
 #define CHASSIS_FOLLOW_GIMBAL_DEADLINE 0.01f
 
 //底盘小陀螺速度值
-#define SPIN_SPEED -10
+#define SPIN_SPEED 		  -10
 
 //底盘自动移动距离项差值系数
 #define AUTO_MOVE_K_DISTANCE_ERROR 1.0f
@@ -295,6 +295,18 @@ typedef struct
     //底盘自动
 
 } chassis_move_t;
+
+/*
+**电机控制信息箱子
+*/
+struct motor_control_box_type
+{
+  float target_rotate_sum;      //目标旋转总量
+  float current_rotate_sum;     //当前旋转总量
+  float target_rotate_angle;    //目标旋转角度
+
+};
+
 
 /**
   * @brief          chassis task, osDelay CHASSIS_CONTROL_TIME_MS (2ms) 

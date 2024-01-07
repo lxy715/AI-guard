@@ -880,11 +880,11 @@ ARM Macro Assembler    Page 14
               00000000 
 Command Line: --debug --xref --diag_suppress=9931,A1950W --cpu=Cortex-M4.fp.sp 
 --depend=standard_tpye_c\startup_stm32f407xx.d -ostandard_tpye_c\startup_stm32f
-407xx.o -I..\\Inc -I..\Inc -I.\RTE\_standard_robot -IS:\keil5\ARM\CMSIS\5.9.0\C
-MSIS\Core\Include -IS:\keil5\Keil\STM32F4xx_DFP\2.17.0\Drivers\CMSIS\Device\ST\
-STM32F4xx\Include --predefine="__UVISION_VERSION SETA 538" --predefine="_RTE_ S
-ETA 1" --predefine="STM32F407xx SETA 1" --predefine="_RTE_ SETA 1" --list=start
-up_stm32f407xx.lst startup_stm32f407xx.s
+407xx.o -I..\\Inc -I..\Inc -I.\RTE\_standard_robot -ID:\keil\ARM\pack\ARM\CMSIS
+\5.9.0\CMSIS\Core\Include -ID:\keil\ARM\pack\Keil\STM32F4xx_DFP\2.17.1\Drivers\
+CMSIS\Device\ST\STM32F4xx\Include --predefine="__UVISION_VERSION SETA 538" --pr
+edefine="_RTE_ SETA 1" --predefine="STM32F407xx SETA 1" --predefine="_RTE_ SETA
+ 1" --list=startup_stm32f407xx.lst startup_stm32f407xx.s
 
 
 

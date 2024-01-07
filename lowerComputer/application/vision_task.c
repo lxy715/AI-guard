@@ -75,28 +75,28 @@ void vision_task(void const* pvParameters)
     // 视觉任务初始化
     vision_task_init(&vision_control);
     // 等待云台射击初始化完成
-    while(shoot_control_vision_task() && gimbal_control_vision_task())
-    {
-        //系统延时
-        vTaskDelay(VISION_CONTROL_TIME_MS);
-    }
+//    while(shoot_control_vision_task() && gimbal_control_vision_task())
+//    {
+//        //系统延时
+//        vTaskDelay(VISION_CONTROL_TIME_MS);
+//    }
 
     while(1)
     {
-        // 更新数据
-        vision_task_feedback_update(&vision_control);
-        //设置机器人模式
-        vision_set_robot_mode(&vision_control);
-        //判断机器人是否处于自主移动到目标点这一模式
+//        // 更新数据
+//        vision_task_feedback_update(&vision_control);
+//        //设置机器人模式
+//        vision_set_robot_mode(&vision_control);
+//        //判断机器人是否处于自主移动到目标点这一模式
 
-        // 设置目标装甲板颜色
-        vision_set_target_armor_color(&vision_control);
-        // 设置识别目标装甲板数字
-        vision_set_target_armor_num(&vision_control);
-        // 判断是否识别到目标
-        vision_judge_appear_target(&vision_control);
-        // 处理上位机数据,计算弹道的空间落点，并反解空间绝对角,并设置控制命令
-        vision_data_process(&vision_control);
+//        // 设置目标装甲板颜色
+//        vision_set_target_armor_color(&vision_control);
+//        // 设置识别目标装甲板数字
+//        vision_set_target_armor_num(&vision_control);
+//        // 判断是否识别到目标
+//        vision_judge_appear_target(&vision_control);
+//        // 处理上位机数据,计算弹道的空间落点，并反解空间绝对角,并设置控制命令
+//        vision_data_process(&vision_control);
 
         // 配置发送数据包
         set_vision_send_packet(&vision_control);

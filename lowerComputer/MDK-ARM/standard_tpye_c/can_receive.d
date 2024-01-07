@@ -2,8 +2,8 @@ standard_tpye_c/can_receive.o: ..\application\CAN_receive.c \
   ..\application\CAN_receive.h ..\application\struct_typedef.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\stddef.h \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\stdint.h ..\Inc\FreeRTOSConfig.h \
+  D:\keil\ARM\ARMCLANG\Bin\..\include\stddef.h \
+  D:\keil\ARM\ARMCLANG\Bin\..\include\stdint.h ..\Inc\FreeRTOSConfig.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\projdefs.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\portable.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\deprecated_definitions.h \
@@ -25,8 +25,8 @@ standard_tpye_c/can_receive.o: ..\application\CAN_receive.c \
   ..\Drivers\CMSIS\Include\cmsis_version.h \
   ..\Drivers\CMSIS\Include\cmsis_compiler.h \
   ..\Drivers\CMSIS\Include\cmsis_armclang.h \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\arm_compat.h \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\arm_acle.h \
+  D:\keil\ARM\ARMCLANG\Bin\..\include\arm_compat.h \
+  D:\keil\ARM\ARMCLANG\Bin\..\include\arm_acle.h \
   ..\Drivers\CMSIS\Include\mpu_armv7.h \
   ..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \

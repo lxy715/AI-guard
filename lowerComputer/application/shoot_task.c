@@ -279,7 +279,7 @@ static void shoot_set_control_mode(fric_move_t *fric_set_control)
                 else
                 {
                     // 判断微动开关是否打开
-                    if (BUTTEN_TRIG_PIN == PRESS)
+                    if (BUTTEN_TRIG_PIN ==0 /**PRESS*/)
                     {
                         // 按下
                         // 设置初始化完成

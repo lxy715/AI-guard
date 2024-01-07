@@ -147,6 +147,8 @@ static void gimbal_auto_scan_control(fp32 *yaw, fp32 *pitch, gimbal_control_t *g
 static void gimbal_auto_move_control(fp32 *yaw, fp32 *pitch, gimbal_control_t *gimbal_control_set);
 
 
+static void gimbal_absolute_spin_angle_control(fp32 *yaw, fp32 *pitch, gimbal_control_t *gimbal_control_set);
+
 /*----------------------------------结构体---------------------------*/
 //云台行为状态机
 static gimbal_behaviour_e gimbal_behaviour = GIMBAL_ZERO_FORCE;
@@ -209,6 +211,11 @@ void gimbal_behaviour_mode_set(gimbal_control_t *gimbal_mode_set)
         gimbal_mode_set->gimbal_yaw_motor.gimbal_motor_mode = GIMBAL_MOTOR_ENCONDE;
         gimbal_mode_set->gimbal_pitch_motor.gimbal_motor_mode = GIMBAL_MOTOR_ENCONDE;
     }
+       else if (gimbal_behaviour == GIMBAL_ABSOLUTE_SPIN)
+    {
+        gimbal_mode_set->gimbal_yaw_motor.gimbal_motor_mode = GIMBAL_MOTOR_ENCONDE;
+        gimbal_mode_set->gimbal_pitch_motor.gimbal_motor_mode = GIMBAL_MOTOR_ENCONDE;
+    }
 }
 
 /**
@@ -239,6 +246,10 @@ void gimbal_behaviour_control_set(fp32 *add_yaw, fp32 *add_pitch, gimbal_control
         gimbal_auto_scan_control(add_yaw, add_pitch, gimbal_control_set);
     else if (gimbal_behaviour == GIMBAL_AUTO_MOVE) // 自动跟随模式
         gimbal_auto_move_control(add_yaw, add_pitch, gimbal_control_set);
+    else if (gimbal_behaviour == GIMBAL_ABSOLUTE_SPIN)
+		gimbal_absolute_spin_angle_control(add_yaw, add_pitch, gimbal_control_set);
+		
+		
 }
 
 /**
@@ -336,7 +347,7 @@ static void gimbal_behavour_set(gimbal_control_t *gimbal_mode_set)
             }
         }
     }
-
+/* 
     if (switch_is_down(gimbal_mode_set->gimbal_rc_ctrl->rc.s[GIMBAL_MODE_CHANNEL]))
     {
         // 遥控器控制模式
@@ -349,9 +360,10 @@ static void gimbal_behavour_set(gimbal_control_t *gimbal_mode_set)
     }
     else if (switch_is_up(gimbal_mode_set->gimbal_rc_ctrl->rc.s[GIMBAL_MODE_CHANNEL]))
     {
+      	gimbal_behaviour = GIMBAL_RC;//GIMBAL_AUTO_SCAN; */
         // 切换到云台自动模式
         // 判断当前模式是否为自动移动模式
-        if (judge_cur_mode_is_auto_move_mode())
+   /*       if (judge_cur_mode_is_auto_move_mode())
         {
             //是自动移动模式
             gimbal_behaviour = GIMBAL_AUTO_MOVE;  //云台自动移动模式
@@ -370,8 +382,8 @@ static void gimbal_behavour_set(gimbal_control_t *gimbal_mode_set)
                 // 未识别到目标
                 gimbal_behaviour = GIMBAL_AUTO_SCAN; // 云台自动扫描模式
             }
-        }
-    }
+        } 
+    } */
     // 遥控器报错处理
     if (toe_is_error(DBUS_TOE))
     {
@@ -507,7 +519,7 @@ static void gimbal_auto_scan_control(fp32 *yaw, fp32 *pitch, gimbal_control_t *g
     fp32 auto_scan_AC_set_pitch = 0;
     // 计算运行时间
     gimbal_control_set->gimbal_auto_scan.scan_run_time = TIME_MS_TO_S(HAL_GetTick()) - gimbal_control_set->gimbal_auto_scan.scan_begin_time;
-    //云台自动扫描,设置浮动值
+   /*  //云台自动扫描,设置浮动值
     scan_control_set(&auto_scan_AC_set_yaw, gimbal_control_set->gimbal_auto_scan.yaw_range, gimbal_control_set->gimbal_auto_scan.scan_yaw_period, gimbal_control_set->gimbal_auto_scan.scan_run_time);
     scan_control_set(&auto_scan_AC_set_pitch, gimbal_control_set->gimbal_auto_scan.pitch_range, gimbal_control_set->gimbal_auto_scan.scan_pitch_period, gimbal_control_set->gimbal_auto_scan.scan_run_time);
     // 赋值控制值  = 中心值 + 加上浮动函数
@@ -516,7 +528,7 @@ static void gimbal_auto_scan_control(fp32 *yaw, fp32 *pitch, gimbal_control_t *g
 
     // 一阶低通使数据平滑
     first_order_filter_cali(&gimbal_control_set->gimbal_auto_scan.yaw_auto_scan_first_order_filter, yaw_set_angle);
-    first_order_filter_cali(&gimbal_control_set->gimbal_auto_scan.pitch_auto_scan_first_order_filter, pitch_set_angle);
+    first_order_filter_cali(&gimbal_control_set->gimbal_auto_scan.pitch_auto_scan_first_order_filter, pitch_set_angle); */
 
     // pitch_set_angle = gimbal_control_set->gimbal_auto_scan.pitch_center_value;
     // yaw_set_angle = gimbal_control_set->gimbal_auto_scan.yaw_center_value;
@@ -524,7 +536,7 @@ static void gimbal_auto_scan_control(fp32 *yaw, fp32 *pitch, gimbal_control_t *g
     // 赋值增量
     *yaw = gimbal_control_set->gimbal_auto_scan.yaw_auto_scan_first_order_filter.out - gimbal_control_set->gimbal_yaw_motor.absolute_angle - yaw_error;
     *pitch = gimbal_control_set->gimbal_auto_scan.pitch_auto_scan_first_order_filter.out - gimbal_control_set->gimbal_pitch_motor.absolute_angle - pitch_error;
-}
+} 
 
 /**
  * @brief                     云台进入自动移动模式，云台姿态受命令，电机是绝对角度控制
@@ -622,3 +634,18 @@ bool_t gimbal_control_vision_task(void)
 }
 
 
+static void gimbal_absolute_spin_angle_control(fp32 *yaw, fp32 *pitch, gimbal_control_t *gimbal_control_set)
+{
+     if (yaw == NULL || pitch == NULL || gimbal_control_set == NULL)
+    {
+        return;
+    }
+
+    static int16_t yaw_channel = 0, pitch_channel = 0;
+
+    rc_deadband_limit(gimbal_control_set->gimbal_rc_ctrl->rc.ch[YAW_CHANNEL], yaw_channel, RC_DEADBAND);
+    rc_deadband_limit(gimbal_control_set->gimbal_rc_ctrl->rc.ch[PITCH_CHANNEL], pitch_channel, RC_DEADBAND);
+    *yaw = yaw_channel * YAW_RC_SEN - gimbal_control_set->gimbal_rc_ctrl->mouse.x * YAW_MOUSE_SEN;
+    *pitch = pitch_channel * PITCH_RC_SEN + gimbal_control_set->gimbal_rc_ctrl->mouse.y * PITCH_MOUSE_SEN;
+
+}

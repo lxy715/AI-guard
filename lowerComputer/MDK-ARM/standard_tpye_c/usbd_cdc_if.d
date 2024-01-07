@@ -2,9 +2,9 @@ standard_tpye_c/usbd_cdc_if.o: ..\Src\usbd_cdc_if.c ..\Inc\usbd_cdc_if.h \
   ..\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc\usbd_cdc.h \
   ..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h \
   ..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h \
-  ..\Inc\usbd_conf.h S:\keil5\ARM\ARMCLANG\Bin\..\include\stdio.h \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\stdlib.h \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\string.h ..\Inc\main.h \
+  ..\Inc\usbd_conf.h D:\keil\ARM\ARMCLANG\Bin\..\include\stdio.h \
+  D:\keil\ARM\ARMCLANG\Bin\..\include\stdlib.h \
+  D:\keil\ARM\ARMCLANG\Bin\..\include\string.h ..\Inc\main.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Inc\stm32f4xx_hal_conf.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \
@@ -12,16 +12,16 @@ standard_tpye_c/usbd_cdc_if.o: ..\Src\usbd_cdc_if.c ..\Inc\usbd_cdc_if.h \
   ..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h \
   ..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h \
   ..\Drivers\CMSIS\Include\core_cm4.h \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  D:\keil\ARM\ARMCLANG\Bin\..\include\stdint.h \
   ..\Drivers\CMSIS\Include\cmsis_version.h \
   ..\Drivers\CMSIS\Include\cmsis_compiler.h \
   ..\Drivers\CMSIS\Include\cmsis_armclang.h \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\arm_compat.h \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\arm_acle.h \
+  D:\keil\ARM\ARMCLANG\Bin\..\include\arm_compat.h \
+  D:\keil\ARM\ARMCLANG\Bin\..\include\arm_acle.h \
   ..\Drivers\CMSIS\Include\mpu_armv7.h \
   ..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\stddef.h \
+  D:\keil\ARM\ARMCLANG\Bin\..\include\stddef.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_exti.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h \
@@ -57,6 +57,6 @@ standard_tpye_c/usbd_cdc_if.o: ..\Src\usbd_cdc_if.c ..\Inc\usbd_cdc_if.h \
   ..\components\algorithm\QuaternionEKF.h \
   ..\components\algorithm\kalman_filter.h \
   ..\components\algorithm\Include\arm_math.h \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\math.h ..\application\referee.h \
+  D:\keil\ARM\ARMCLANG\Bin\..\include\math.h ..\application\referee.h \
   ..\application\protocol\protocol.h ..\application\struct_typedef.h \
   ..\application\remote_control.h ..\bsp\boards\bsp_rc.h

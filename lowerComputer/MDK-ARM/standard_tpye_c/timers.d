@@ -1,9 +1,9 @@
 standard_tpye_c/timers.o: \
   ..\Middlewares\Third_Party\FreeRTOS\Source\timers.c \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\stdlib.h \
+  D:\keil\ARM\ARMCLANG\Bin\..\include\stdlib.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\stddef.h \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\stdint.h ..\Inc\FreeRTOSConfig.h \
+  D:\keil\ARM\ARMCLANG\Bin\..\include\stddef.h \
+  D:\keil\ARM\ARMCLANG\Bin\..\include\stdint.h ..\Inc\FreeRTOSConfig.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\projdefs.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\portable.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\deprecated_definitions.h \

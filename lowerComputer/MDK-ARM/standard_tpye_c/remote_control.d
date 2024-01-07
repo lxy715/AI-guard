@@ -1,9 +1,9 @@
 standard_tpye_c/remote_control.o: ..\application\remote_control.c \
   ..\application\remote_control.h ..\application\struct_typedef.h \
   ..\bsp\boards\bsp_rc.h ..\Drivers\CMSIS\Include\cmsis_armclang.h \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\arm_compat.h \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\arm_acle.h \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\stdint.h ..\Inc\main.h \
+  D:\keil\ARM\ARMCLANG\Bin\..\include\arm_compat.h \
+  D:\keil\ARM\ARMCLANG\Bin\..\include\arm_acle.h \
+  D:\keil\ARM\ARMCLANG\Bin\..\include\stdint.h ..\Inc\main.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Inc\stm32f4xx_hal_conf.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \
@@ -16,7 +16,7 @@ standard_tpye_c/remote_control.o: ..\application\remote_control.c \
   ..\Drivers\CMSIS\Include\mpu_armv7.h \
   ..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\stddef.h \
+  D:\keil\ARM\ARMCLANG\Bin\..\include\stddef.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_exti.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h \
@@ -45,6 +45,5 @@ standard_tpye_c/remote_control.o: ..\application\remote_control.c \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pcd.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_ll_usb.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pcd_ex.h \
-  ..\bsp\boards\bsp_usart.h \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\string.h \
+  ..\bsp\boards\bsp_usart.h D:\keil\ARM\ARMCLANG\Bin\..\include\string.h \
   ..\application\detect_task.h

@@ -79,6 +79,7 @@ typedef enum
     GIMBAL_AUTO_MOVE,   // 自动移动模式
     GIMBAL_RC,          // 遥控器控制模式
     GIMBAL_MOTIONLESS,
+    GIMBAL_ABSOLUTE_SPIN,
 } gimbal_behaviour_e;
 
 /**

@@ -3,9 +3,9 @@ standard_tpye_c/gimbal_task.o: ..\application\gimbal_task.c \
   ..\application\CAN_receive.h ..\components\controller\pid.h \
   ..\application\remote_control.h ..\bsp\boards\bsp_rc.h \
   ..\Drivers\CMSIS\Include\cmsis_armclang.h \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\arm_compat.h \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\arm_acle.h \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  D:\keil\ARM\ARMCLANG\Bin\..\include\arm_compat.h \
+  D:\keil\ARM\ARMCLANG\Bin\..\include\arm_acle.h \
+  D:\keil\ARM\ARMCLANG\Bin\..\include\stdint.h \
   ..\components\algorithm\user_lib.h ..\application\vision_task.h \
   ..\Inc\usart.h ..\Inc\main.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
@@ -20,7 +20,7 @@ standard_tpye_c/gimbal_task.o: ..\application\gimbal_task.c \
   ..\Drivers\CMSIS\Include\mpu_armv7.h \
   ..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\stddef.h \
+  D:\keil\ARM\ARMCLANG\Bin\..\include\stddef.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_exti.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h \
@@ -54,9 +54,9 @@ standard_tpye_c/gimbal_task.o: ..\application\gimbal_task.c \
   ..\components\algorithm\QuaternionEKF.h \
   ..\components\algorithm\kalman_filter.h \
   ..\components\algorithm\Include\arm_math.h \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\string.h \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\math.h \
-  S:\keil5\ARM\ARMCLANG\Bin\..\include\stdlib.h ..\application\referee.h \
+  D:\keil\ARM\ARMCLANG\Bin\..\include\string.h \
+  D:\keil\ARM\ARMCLANG\Bin\..\include\math.h \
+  D:\keil\ARM\ARMCLANG\Bin\..\include\stdlib.h ..\application\referee.h \
   ..\application\protocol\protocol.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.h \
   ..\Middlewares\Third_Party\FreeRTOS\Source\include\FreeRTOS.h \
